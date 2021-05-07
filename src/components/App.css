@@ -1,0 +1,28 @@
+.App {
+  text-align: center;
+}
+
+.search-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.district-dropdown,
+.block-dropdown {
+  margin-top: 15px;
+}
+
+.search-box .form-select {
+  width: 250px;
+}
+
+.search-btn,
+.search-block {
+  margin-top: 15px;
+}
+
+.search-block {
+  margin: 15px;
+}
