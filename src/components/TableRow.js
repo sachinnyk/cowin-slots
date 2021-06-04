@@ -1,5 +1,6 @@
 import React from "react";
 import dayjs from "dayjs";
+import { Table } from "semantic-ui-react";
 
 export default function TableRow({ col }) {
   const coltemp = [];
@@ -30,20 +31,20 @@ export default function TableRow({ col }) {
   });
 
   const tdComponents = coltemp.map((col, index) => (
-    <td key={index} className="tableData">
-      <span>{col.available_capacity}</span>
+    <Table.Cell
+      key={index}
+      error={col.available_capacity === 0 ? true : false}
+      warning={col.available_capacity === "NA" ? true : false}>
+      {col.available_capacity}
       <br />
-      {col.min_age_limit !== "NA" ? <span> Age Limit {col.min_age_limit}+</span> : ""}
-    </td>
+      {col.min_age_limit !== "NA" ? <p>Age Limit {col.min_age_limit}+ </p> : ""}
+    </Table.Cell>
   ));
 
   return (
-    <tr>
-      <th scope="row" className="tableData">
-        {col.name}
-      </th>
-
+    <Table.Row>
+      <Table.Cell>{col.name}</Table.Cell>
       {tdComponents}
-    </tr>
+    </Table.Row>
   );
 }
